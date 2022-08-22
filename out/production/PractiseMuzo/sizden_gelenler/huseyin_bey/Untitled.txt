@@ -1,0 +1,23 @@
+package A_PRACTICE.day12_Okul_Proje;
+
+import static A_PRACTICE.day12_Okul_Proje.Islemler.ogrncList;
+import static A_PRACTICE.day12_Okul_Proje.Islemler.ogrtmnList;
+
+public class Input {
+    public static void hazirInputlar() {
+        Ogrenci ogrenci1 = new Ogrenci("Hüseyin Avni ŞEN", "1", 45, "236", "JAVA-82");
+        ogrncList.add(ogrenci1);
+        Ogrenci ogrenci2 = new Ogrenci("Ayşe ERDEM", "2", 30, "125", "JAVA-82");
+        ogrncList.add(ogrenci2);
+        Ogrenci ogrenci3 = new Ogrenci("Birol MACİT", "3", 35, "100", "JAVA-82");
+        ogrncList.add(ogrenci3);
+
+        Ogretmen ogretmen1 = new Ogretmen("Muzaffer BULUT", "100", 33, "JAVA ADVANCED PRACTİSE", "100100");
+        ogrtmnList.add(ogretmen1);
+        Ogretmen ogretmen2 = new Ogretmen("Ahmet BULUTLUÖZ", "200", 50, "JAVA", "200200");
+        ogrtmnList.add(ogretmen2);
+        Ogretmen ogretmen3 = new Ogretmen("Elif ÇETİN", "300", 30, "JAVA PRACTİSE", "300300");
+        ogrtmnList.add(ogretmen3);
+
+    }
+}

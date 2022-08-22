@@ -1,0 +1,224 @@
+package A_PRACTICE.day12_Okul_Proje;
+
+import jdk.swing.interop.SwingInterOpUtils;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Islemler {
+    static List<Kisi> ogrtmnList = new ArrayList<>();
+    static List<Kisi> ogrncList = new ArrayList<>();
+    static Scanner scan = new Scanner(System.in);
+    static String kisiTuru;
+    //static yazmamizin sebebi tum methodlardan ulasamk icin gokte ki ay
+    //gokteki ay gibi heryeden ulaşılabilsin
+
+  /*  public static void hazirListeEkleme() {
+        Ogrenci ogrenci1 = new Ogrenci("Hüseyin Avni ŞEN", "1", 45, "236", "JAVA-82");
+        ogrncList.add(ogrenci1);
+        Ogrenci ogrenci2 = new Ogrenci("Ayşe ERDEM", "2", 30, "125", "JAVA-82");
+        ogrncList.add(ogrenci2);
+        Ogrenci ogrenci3 = new Ogrenci("Birol MACİT", "3", 35, "100", "JAVA-82");
+        ogrncList.add(ogrenci3);
+
+        Ogretmen ogretmen1 = new Ogretmen("Muzaffer BULUT", "100", 33, "JAVA ADVANCED PRACTİSE", "100100");
+        ogrtmnList.add(ogretmen1);
+        Ogretmen ogretmen2 = new Ogretmen("Ahmet BULUTLUÖZ", "200", 50, "JAVA", "200200");
+        ogrtmnList.add(ogretmen2);
+        Ogretmen ogretmen3 = new Ogretmen("Elif ÇETİN", "300", 30, "JAVA PRACTİSE", "300300");
+        ogrtmnList.add(ogretmen3);
+
+    }
+*/
+
+    public static void girisPaneli() {
+        System.out.println("###################################");
+        System.out.println("ÖĞRENCİ VE ÖĞRETMEN YÖNETİM PANELİ");
+        System.out.println("###################################");
+        System.out.println("1- ÖĞRENCİ İŞLEMLERİ");
+        System.out.println("2- ÖĞRETMEN İŞLEMLERİ");
+        System.out.println("Q- ÇIKIŞ");
+        System.out.println("###################################");
+        System.out.print("Seçiminiz :  ");
+        String secim = scan.next().toUpperCase();//kullanici kucuk harf girse bile buyuk harfe cevirdik cunku kontrol buyuk harfle yapcaz
+        switch (secim) {
+            case "1":
+                kisiTuru = "ÖĞRENCİ";
+                islemMenusu();
+                break;
+            case "2":
+                kisiTuru = "ÖĞRETMEN";
+                islemMenusu();
+                break;
+            case "Q":
+                break;
+            default:
+                System.out.println("hatali giris :(");
+                girisPaneli();
+                break;
+        }
+    }
+
+    private static void islemMenusu() {
+        System.out.println("#######################################");
+        System.out.println("##### " + kisiTuru + "  İŞLEMLERİ MENÜSÜ #####");
+        System.out.println("########################################\n" +
+                "         1-EKLEME\n" +
+                "         2-ARAMA\n" +
+                "         3-LİSTELEME\n" +
+                "         4-SİLME\n" +
+                "         5-ANA MENÜ\n" +
+                "         0-ÇIKIŞ");
+        System.out.println("islem tercihinizi giriniz: ");
+        int secilenIslem = scan.nextInt();
+        switch (secilenIslem) {
+            case 1:
+                ekle();
+                islemMenusu();
+                break;
+            case 2:
+                arama();
+                islemMenusu();
+                break;
+            case 3:
+                listeleme();
+                islemMenusu();
+                break;
+            case 4:
+                silme();
+                islemMenusu();
+                break;
+            case 5:
+                girisPaneli();//yani ana menu
+                break;
+            case 0:
+                //cikis();
+                break;
+            default:
+                System.out.println("HATALI GİRİŞ YAPTINIZ");
+                islemMenusu();
+                break;
+        }
+    }
+
+    private static void silme() { // KİMLİK NOYA GÖRE SİLME
+
+        System.out.println("##### " + kisiTuru + "  SİLME  SAYFASI ##### ");
+        scan.nextLine();
+        System.out.print("Silmek istediginiz kişinin Kimlik Numarasını Girin:");
+        String arananKimlik = scan.next();
+        boolean varMi = false;
+        if (kisiTuru.equals("ÖĞRENCİ")) {  // ÖĞRENCİ SİLME
+            for (int i = 0; i < ogrncList.size(); i++) {
+                if (arananKimlik.equals(ogrncList.get(i).getKimlikNo())) {
+                    System.out.println("========================================");
+                    System.out.println(ogrncList.get(i).adSoyad + " Adlı Öğrenci Kayıtlardan Silindi");
+                    System.out.println("========================================");
+                    ogrncList.remove(i);
+                    varMi = true;
+                }
+            }
+            if (varMi == false) System.out.println("Bu Kimlik Noya Sahip Biri Öğrenci Yok");
+
+        } else { // ÖĞRETMEN SİLME
+            for (int i = 0; i < ogrtmnList.size(); i++) {
+                if (arananKimlik.equals(ogrtmnList.get(i).getKimlikNo())) {
+                    System.out.println("========================================");
+                    System.out.println(ogrtmnList.get(i).adSoyad + " Adlı Öğretmen Kayıtlardan Silindi");
+                    System.out.println("========================================");
+                    ogrtmnList.remove(i);
+                    varMi = true;
+                }
+            }
+            if (varMi == false) System.out.println("Bu Kimlik Noya Sahip Biri Öğretmen Yok");
+        }
+
+
+    } // SİLME SONU
+
+    private static void listeleme() { // TÜM KİŞİLERİ LİSTELEME
+        if (kisiTuru.equals("ÖĞRENCİ")) {
+            System.out.println("========================");
+            System.out.println(" KAYITLI TÜM ÖĞRENCİLER ");
+            System.out.println("========================");
+
+            for (int i = 0; i < ogrncList.size(); i++) {
+                System.out.println(ogrncList.get(i));
+                System.out.println("..............");
+            }
+        } else {
+            System.out.println("========================");
+            System.out.println(" KAYITLI TÜM ÖĞRETMENLER");
+            System.out.println("========================");
+            for (int i = 0; i < ogrtmnList.size(); i++) {
+                System.out.println(ogrtmnList.get(i));
+                System.out.println("..............");
+            }
+        }
+    } // LİSTELEME SONU
+
+    private static void arama() { // KİMLİK NO'YA GÖRE ARAMA
+        System.out.println("##### " + kisiTuru + "  ARAMA SAYFASI ##### ");
+        scan.nextLine();
+        System.out.print("Aramak istediginiz kişinin Kimlik Numarasını Girin:");
+        String arananKimlik = scan.next();
+        boolean varMi = false;
+        if (kisiTuru.equals("ÖĞRENCİ")) {  // ÖĞRENCİ ARAMA
+            for (int i = 0; i < ogrncList.size(); i++) {
+                if (arananKimlik.equals(ogrncList.get(i).getKimlikNo())) {
+                    System.out.println(ogrncList.get(i));
+                    varMi = true;
+                }
+            }
+            if (varMi == false) System.out.println("Bu Kimlik Noya Sahip Biri Öğrenci Yok");
+
+        } else { // ÖĞRETMEN ARAMA
+            for (int i = 0; i < ogrtmnList.size(); i++) {
+                if (arananKimlik.equals(ogrtmnList.get(i).getKimlikNo())) {
+                    System.out.println(ogrtmnList.get(i));
+                    varMi = true;
+                }
+            }
+            if (varMi == false) System.out.println("Bu Kimlik Noya Sahip Biri Öğretmen Yok");
+        }
+    } // ARAMA SONU
+
+    private static void ekle() {//KİŞİ EKLEME METHODU
+        System.out.println("##### " + kisiTuru + " EKLEME SAYFASI ##### ");
+        scan.nextLine();
+        System.out.print("İsim-Soyisim Gir : ");
+        String adSoyad = scan.nextLine();
+        System.out.print("Kimlik No Gir : ");
+        String kimlikNo = scan.nextLine();
+        System.out.print("Yaş Gir: ");
+        int yas = scan.nextInt();
+        if (kisiTuru.equals("ÖĞRENCİ")) {
+            scan.nextLine();
+            System.out.print("Numara Gir: ");
+            String ogrenciNo = scan.nextLine();
+            System.out.print("Sınıf Gir: ");
+            String sinif = scan.nextLine();
+
+            Ogrenci ogrenci = new Ogrenci(adSoyad, kimlikNo, yas, ogrenciNo, sinif);
+            ogrncList.add(ogrenci);
+            System.out.println("========================================");
+            System.out.println(ogrenci.getAdSoyad() + " Adlı Öğrenci Kayıtlara Eklendi");
+            System.out.println("========================================");
+
+        } else {
+            scan.nextLine();
+            System.out.println("Bölüm Gir: ");
+            String bolum = scan.nextLine();
+            System.out.println("Sicil No Gir: ");
+            String sicilNo = scan.nextLine();
+
+            Ogretmen ogretmen = new Ogretmen(adSoyad, kimlikNo, yas, bolum, sicilNo);
+            ogrtmnList.add(ogretmen);
+            System.out.println("========================================");
+            System.out.println(ogretmen.getAdSoyad() + " Adlı Öğretmen Kayıtlara Eklendi");
+            System.out.println("========================================");
+
+        }
+    } // KİŞİ EKLEME SONU
+}

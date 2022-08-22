@@ -1,0 +1,41 @@
+package A_PRACTICE.day12_Okul_Proje;
+
+public class Ogretmen extends Kisi {
+    private String bolum;
+    private String sicilNo;
+
+    public Ogretmen(){ // parametresiz cons - hata vermemesi için...
+    }
+
+    public Ogretmen(String adSoyad, String kimlikNo, int yas, String bolum, String sicilNo) {
+        super(adSoyad, kimlikNo, yas); // parente gider..
+        this.bolum = bolum;
+        this.sicilNo = sicilNo;
+    }
+
+    public String getBolum() {
+        return bolum;
+    }
+
+    public String getSicilNo() {
+        return sicilNo;
+    }
+
+    public void setBolum(String bolum) {
+        this.bolum = bolum;
+    }
+
+    public void setSicilNo(String sicilNo) {
+        this.sicilNo = sicilNo;
+    }
+
+    @Override
+    public String toString() {
+        return  super.toString()+
+                "\nBölümü: " + bolum +
+                "\nSicil No: " +sicilNo ;
+        // super.toString() -- baba clastan gelecek
+    }
+}
+
+
