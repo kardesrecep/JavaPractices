@@ -15,7 +15,7 @@ public class Sunum {
     Dizimiz veya Collection’ımız üzerinde bizim belirteceğimiz koşullar doğrultusunda
     filtreleme işlemi yapmamıza yarayan bir yapıdır.
     Bu işlem sonrası belirttiğimiz koşula uygun olmayan elemanlar bir sonraki aşamada kullanılamazlar.
-    Artık elimizde filtrelenmiş/süzülmüş/elenmiş bir veri vardır
+    Artık elimizde filtrelenmiş/süzülmüş/elenmiş bir veri vardır.
      */
     //===========================================
    /*
@@ -31,7 +31,7 @@ public class Sunum {
 
     ///==========================
     /*
-    Distinct
+    Distinct (unique bir yapi olusturmak istediğimizde kullanabiliriz)
 Stream içerisinde bulunan ve tekrar eden elemanlar varsa
  bunları distinct metodu ile çıkartabilir ve
 elimizde tekrar etmeyen birbirinden farklı
@@ -50,7 +50,7 @@ elemanlar barından bir veri setimiz kalır
 
 
     /*
-    reduce : indirgeme demektir.
+    reduce : indirgeme demektir. reduce(1,(a,b)->a+b)
     kullanımı; elemanları teker teker işler. Bir önceki adımda elde edilen sonuç,
     bir sonraki elemanla işlemle tutulur
      */
@@ -63,7 +63,7 @@ elemanlar barından bir veri setimiz kalır
     //===============================
 
     /*
-     AnyMath: Vereceğimiz şarta bağlı olarak Stream içerisinde gezinir ve
+     AnyMatch: Vereceğimiz şarta bağlı olarak Stream içerisinde gezinir ve
     herhangi bir elemanla eşleşme durumunda true dönecektir.
      */
 //========================

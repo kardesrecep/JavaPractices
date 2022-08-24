@@ -1,0 +1,33 @@
+methodlardan olusan list cre method
+static olarak scanner tanimlayin
+kullanicidan int alip onu listteki index e gore methodlara atayacak
+
+methogetir methoduu olustur
+ tahmin edilecek methodu * a cevir ki kullanicii gormesin
+
+ kullanicinin tahmin hakki sectigi methodun index * 2 kadar olusan
+
+ her yanlis tahminde yanlis tahmin sayisi Aartsin
+
+ kullanicinin girdigi harf yildizli kisima ata yerlestir setCharAt(i, harf)
+
+ tahmin edilecek method ile methodlardan aldigin method esit ise
+ kazandirn yazdir
+
+ bu dongu yanlis tahmin sayisi tahmin hakkina esit olana kadar calisiisn
+
+ bilemezse oyun bitti ve tahmin edilemyen methodu yazdir
+
+
+  Çalişma mantiği ve yapısi while döngüsününkiyle aynidır.
+
+  Tek farklı while döngüsünde döngünün başında belirttiğimiz
+
+  koşul ifadesi do-while döngüsünde sonda yer almaktadir. While
+
+  döngüsünde koşul ifadesinin sağlanmadığı durumda program akişi
+
+  döngüye girmeden devam eder, fakat do-while döngüsünde bu koşul
+
+  ifade sonda yer aldiğindan programimiz en az 1 kere do-while içerisindeki işlemleri uygular.
+

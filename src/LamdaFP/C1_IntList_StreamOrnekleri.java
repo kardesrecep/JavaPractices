@@ -22,12 +22,16 @@ public class C1_IntList_StreamOrnekleri {
         list.add(8);
 //////////////////////////////////////////////
         yaz(list);
+        System.out.println();
         neg(list);
+        System.out.println();
         System.out.println("poz elemanlar) = " + pozList(list));
         System.out.println("kare(list) = " + kare(list));
         System.out.println("kareteksiz(list) = " + kareteksiz(list));
         sira1(list);
+        System.out.println();
         sira2(list);
+        System.out.println();
         System.out.println("sonBas5(list) = " + sonBas5(list));
         System.out.println("sonBas5degil(list) = " + sonBas5degil(list));
         System.out.println("top(list) = " + top(list));
@@ -55,7 +59,7 @@ public class C1_IntList_StreamOrnekleri {
     //S2: sadece negatif olanlari yazdir
 
     public static void neg(List<Integer> l) {
-        l.stream().filter(t -> t < 0).forEach(t -> System.out.println(t + " "));
+        l.stream().filter(t -> t < 0).forEach(t -> System.out.print(t + " "));
     }
     // Filter
     //    Dizimiz veya Collection’ımız üzerinde bizim belirteceğimiz koşullar doğrultusunda
@@ -140,16 +144,16 @@ elemanlar barından bir veri setimiz kalır
      */
 
     // S11 : peek ornegi cozelim
-    // negatiplerin karelerinden list olusturalim
+    // negatiflerin karelerinden list olusturalim
     public static List<Integer> kkarelist(List<Integer> l) {
         return l.stream().filter(t -> t < 0).
                 peek(t -> System.out.print("negatifler: " + t)).
                 map(t -> t * t).peek(t -> System.out.println(" kareleri: " + t)).collect(Collectors.toList());
     }
      /*
-    peek () 'in Javadoc sayfası şöyle diyor: " Bu yöntem, temelde, öğeleri bir
-     ardışık düzen içinde belirli bir noktadan geçerken görmek istediğiniz
-     yerde hata ayıklamayı desteklemek için vardır .
+    peek () 'in Javadoc sayfası şöyle diyor:
+     Bu yöntem, esas olarak, öğeleri bir boru hattında belirli bir
+     noktadan geçerken görmek istediğiniz hata ayıklamayı desteklemek için vardır.
      */
 
     // S12 : listeden 5 den buyuk  sayi var mi
@@ -158,7 +162,7 @@ elemanlar barından bir veri setimiz kalır
     }
 
      /*
-     AnyMath: Vereceğimiz şarta bağlı olarak Stream içerisinde gezinir ve
+     AnyMatch: Vereceğimiz şarta bağlı olarak Stream içerisinde gezinir ve
     herhangi bir elemanla eşleşme durumunda true dönecektir.
      */
 
@@ -212,7 +216,7 @@ ancak sen bize şu kadarını göster diyoruz.
     }
 /*
         Skip () bize eleman atlamayi saglar ara islemdir
-         veriable olarak long alir ornegin skip(3)ilk 3 elemani atlar
+         variable olarak long alir ornegin skip(3)ilk 3 elemani atlar
  */
 
 }
