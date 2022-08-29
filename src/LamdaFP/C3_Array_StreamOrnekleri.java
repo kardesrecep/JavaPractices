@@ -22,9 +22,13 @@ public class C3_Array_StreamOrnekleri {
 
 
     }
-    //S1: arrayin elemanlarini bir liste yazdiralim
+    //S1: arrayin elemanlarini bir liste atip yazdiralim
     public static List<Integer> listele (Integer[] arr){
-        return  Arrays.stream(arr).collect(Collectors.toList());
+
+        return  Stream.of(arr).collect(Collectors.toList());
+
+
+
     }
 
     //S2: Arrayin elemanlarini toplamini bulalim
@@ -34,13 +38,14 @@ public class C3_Array_StreamOrnekleri {
         return arrl.reduce(0,(x,y)->x+y);
     }
     public static int top2(int[] arr){
+
         return Arrays.stream(arr).sum();
     }
 
     // S3: Array in elemanlarinin ortalamasini bulalim yazdir
 
     public static void ort1(int [] arr){
-        Arrays.stream(arr).average().ifPresent(t-> System.out.println(t));
+        Arrays.stream(arr).average().ifPresent(System.out::println);
     }
 
 

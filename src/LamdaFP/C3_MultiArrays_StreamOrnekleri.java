@@ -1,5 +1,5 @@
 package LamdaFP;
-//multi arrayleri cevirirken flapMap kullaniriz yapilis sekli iki turludur
+//multi arrayleri cevirirken flatMap kullaniriz yapilis sekli iki turludur
 //1) lamda kullanarak
 // Arrays.stream(str).flatMap(t->Arrays.stream(t))
 //2 method ile
@@ -25,19 +25,21 @@ public class C3_MultiArrays_StreamOrnekleri {
     }
     // S1 : tum elemanlari list yapayim
     public static List<String> listele(String[][] str){
-        return Arrays.stream(str).flatMap(t->Arrays.stream(t)).collect(Collectors.toList());
+        return Arrays.stream(str).flatMap(Arrays::stream).collect(Collectors.toList());
+        //Arrays.stream(str).flatMap(t->Arrays.stream(t)).collect(Collectors.toList());
     }
 
 
-    // S2: E ile baslayan elemanlari double (elmaelma) olarak yazdiralim yazdiralim
+   //S2: Tum elemanlari double(javajava)gibi yazdiralim
     public static void doubleyaz(String [][] str ){
-        Arrays.stream(str).flatMap(t->Arrays.stream(t)).map(t->t+t).forEach(t-> System.out.println(t));
+        Arrays.stream(str).flatMap(t->Arrays.stream(t)).map(z->z+z).forEach(k-> System.out.println(k));
     }
+    // S3: E ile baslayan elemanlari   yazdiralim
     public static List<String > doubleYazListeE(String [][]arr){
         return Arrays.stream(arr).flatMap(t->Arrays.stream(t)).filter(t->t.startsWith("E")).collect(Collectors.toList());
     }
 
-    //k ile bitenlerin sonuna '*' ekleyelim
+    // S4: k ile bitenlerin sonuna '*' ekleyelim
     public static void kbitenYildzEkle(String[][]arr){
         Arrays.stream(arr).flatMap(t-> Arrays.stream(t)).
                 filter(t->t.endsWith("k")).map(t->t+"*").forEach(t-> System.out.println(t));
