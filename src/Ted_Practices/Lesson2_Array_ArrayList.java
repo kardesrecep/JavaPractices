@@ -1,4 +1,4 @@
-package Oop;
+package Ted_Practices;
 
 import java.util.ArrayList;
 import java.util.Arrays;

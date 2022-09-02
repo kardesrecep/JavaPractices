@@ -8,7 +8,7 @@ import java.util.List;
 public class C5_Method_Referance_String {
     public static void main(String[] args) {
         List<String> l= Arrays.asList("Elma", "Muz", "Portakal", "Cilek", "Limon");
-        // buyukYaz(l);
+        //buyukYaz(l);
         //sirala(l);
         eIleBas(l);
 
@@ -16,19 +16,20 @@ public class C5_Method_Referance_String {
     }
     // S1: Tum harfleri buyuk harf ile aralarinda bosluk birakarak yazdiralim
     public static void buyukYaz(List<String> l){
-        l.stream().map(String::toUpperCase).forEach(Methods::yaz1);
+       l.stream().map(String::toUpperCase).forEach(Methods::yazYazi);
 
     }
 
     //S2: Stringleri uzunluklarina gore siralayip yaziniz
     public static void sirala(List<String>l){
-        l.stream().sorted(Comparator.comparing(String::length)).forEach(System.out::println);
+       l.stream().sorted(Comparator.comparing(String::length)).forEach(Methods::yazYazi);
     }
 
 
     //S3: E ILE Baslayanlari yazdiralim
     public static void eIleBas(List<String>l){
         l.stream().filter(Methods::EbasliyorMu).forEach(System.out::print);
+       // l.stream().filter(t->t.startsWith("E")||t.startsWith("e")).forEach(Methods::yaz1);
     }
 
 }

@@ -1,28 +1,27 @@
 package LamdaFP;
 
-import java.util.OptionalInt;
 import java.util.stream.IntStream;
 
 public class C7_Lambdada_ForLoop___Aralik_Kontrolu {
     public static void main(String[] args) {
-        int a=1;
-        int b=5;
+        int a=30;
+        int b=15;
 //ilk30(a);
-        //System.out.println();
+       //System.out.println();
 //ilk30dahil(a);
-        //   System.out.println("top(a,b) = " + top(a, b));
+        System.out.println("top(a,b) = " + top(a, b));
 //ort(30,40);
-        System.out.println("sekizeBolunen(325,468) = " + sekizeBolunen(325, 468));
-        sekizeBolunenyaz(325,468);
-        System.out.println("sekizeBolunentop(325,468) = " + sekizeBolunentop(325, 468));
-        System.out.println("carpim(7,55) = " + carpim(7, 15));
-        ilk10(10);
-        yedininKati(10);
-        System.out.println("yediTop(20) = " + yediTop(20));
+       // System.out.println("sekizeBolunen(325,468) = " + sekizeBolunen(325, 468));
+       // sekizeBolunenyaz(325,468);
+      // System.out.println("sekizeBolunentop(325,468) = " + sekizeBolunentop(325, 468));
+      // System.out.println("carpim(7,55) = " + carpim(7, 15));
+      // ilk10(10);
+      // yedininKati(10);
+      // System.out.println("yediTop(20) = " + yediTop(20));
     }
     // S1:1 den 30 kadar olan sayilari (30 dahil degil) 1,2,.... seklinde siralayalim (for loopsuz)
     public static void ilk30(int a){
-        IntStream.range(1,a).sorted().forEach(t-> System.out.print(t+" ,"));
+       IntStream.range(2,a).forEach(Methods::yazSayi);
     }
 
 
@@ -32,8 +31,14 @@ public class C7_Lambdada_ForLoop___Aralik_Kontrolu {
     }
 
     //S3 Istenen iki deger arasindaki sayilari toplayalim
-    public  static int top(int bas,int bits){
-        return IntStream.rangeClosed(bas,bits).sum();
+    public  static int top(int bas,int bitis){
+        int temp=0;
+        if (bas>bitis){
+            temp=bitis;
+            bitis=bas;
+            bas=temp;
+        }
+        return IntStream.rangeClosed(bas,bitis).sum();
     }
 
     //S4: 30 ile 40 arasindaki sayilarin ortalamasini bulalim
@@ -72,7 +77,7 @@ public class C7_Lambdada_ForLoop___Aralik_Kontrolu {
 
     //S9: poz tek sayilarin ilk 10 elemanin yazdiralim
     public static void ilk10(int a){
-        IntStream.iterate(1,t->t+2).limit(10).filter(Methods::tekMi).forEach(Methods::yaz);
+        IntStream.iterate(1,t->t+2).limit(10).filter(Methods::tekMi).forEach(Methods::yazSayi);
     }
 
 

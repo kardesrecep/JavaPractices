@@ -21,7 +21,7 @@ public class C4_Method_Refarance_Int {
     }
     // S1: tekleri aralarinda bir bosluk birakarak yazdiralim
     public static void tekYaz(List<Integer>l){
-        l.stream().filter(Methods::tekMi).forEach(Methods::yaz);
+        l.stream().filter(Methods::tekMi).forEach(Methods::yazSayi);
     }
 
     // S2: ciftlein carpimini bulalim

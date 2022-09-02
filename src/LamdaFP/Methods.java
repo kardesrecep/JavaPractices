@@ -1,13 +1,12 @@
 package LamdaFP;
-import java.util.List;
 import java.util.stream.IntStream;
 
 public class Methods {
-    public static void yaz(int n){
+    public static void yazSayi(int n){
         System.out.print(n+" ");
     }
     ///////////////////////////////////////////
-    public static void yaz1(String s){
+    public static void yazYazi(String s){
         System.out.print(s+" ");
     }
     ////////////////////////////////
@@ -39,11 +38,16 @@ public class Methods {
     }
 
 
-    public static void yaz2(IntStream S) {
+    public static void yazIntstream(IntStream S) {
         System.out.println(S+ " ");
     }
     public static int top (int a,int b){
         return a+b;
     }
+    public static void yazPrintF (Object yazdir){
+        System.out.println(yazdir+" ");
 
-}
+        }
+
+    }
+
