@@ -30,6 +30,7 @@ public class C5_Method_Referance_String {
     public static void eIleBas(List<String>l){
         l.stream().filter(Methods::EbasliyorMu).forEach(System.out::print);
        // l.stream().filter(t->t.startsWith("E")||t.startsWith("e")).forEach(Methods::yaz1);
+
     }
 
 }
